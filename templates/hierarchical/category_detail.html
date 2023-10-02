@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{{ category.name }}</h1>
+  
+  
+
+  <h2>Parent Categories:</h2>
+  <ul>
+    {% for category in category_path %}
+      <li><a href="{% url 'hierarchical:category_detail' category.id %}">{{ category.name }}</a></li>
+    {% endfor %}
+  </ul>
+
+  <h2>Subcategories:</h2>
+  <ul>
+    {% for subcategory in subcategories %}
+      <li><a href="{% url 'hierarchical:category_detail' subcategory.id %}">{{ subcategory.name }}</a></li>
+    {% endfor %}
+  </ul>
+
+  <h2>Products:</h2>
+  <ul>
+    {% for product in products %}
+      <li><a href="{% url 'hierarchical:product_detail' product.id %}">{{ product.name }}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}

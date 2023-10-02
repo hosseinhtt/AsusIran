@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{{ product.name }}</h1>
+  
+  <h2>Category Path:</h2>
+  <ul>
+    {% for category in category_path %}
+      <li><a href="{% url 'hierarchical:category_detail' category.id %}">{{ category.name }}</a></li>
+    {% endfor %}
+  </ul>
+  
+  <p>Description: {{ product.description }}</p>
+  <p>Price: ${{ product.price }}</p>
+{% endblock %}
