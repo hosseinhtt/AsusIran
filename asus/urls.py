@@ -20,5 +20,5 @@ from django.urls import path, include
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('hierarchical/', include('hierarchical.urls')),
-    path('dynamic/', include('dynamic.urls')),
+    
 ]

@@ -3,8 +3,8 @@
 {% block content %}
   <h1>{{ category.name }}</h1>
   
-  
-
+  <div class="row">
+    <aside class="col-md-3">
   <h2>Parent Categories:</h2>
   <ul>
     {% for category in category_path %}
@@ -18,11 +18,15 @@
       <li><a href="{% url 'hierarchical:category_detail' subcategory.id %}">{{ subcategory.name }}</a></li>
     {% endfor %}
   </ul>
+</aside>
+<main class="col-md-9">
 
-  <h2>Products:</h2>
+  <h2>Products Related to {{ category.name }}:</h2>
   <ul>
     {% for product in products %}
       <li><a href="{% url 'hierarchical:product_detail' product.id %}">{{ product.name }}</a></li>
     {% endfor %}
   </ul>
+  </main>
+</div>
 {% endblock %}
